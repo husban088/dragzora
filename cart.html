@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POWER Fitness | GYM Clothes</title>
+
+    <!-- ================== CSS FILE LINK ======================= -->
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/carttwo.css" />
+
+    <!-- ================== GOOGLE FONTS LINK ======================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ================== WEB SHORTCUT ICON ======================= -->
+
+    <link rel="shortcut icon" type="image/png" href="images/logo.avif" />
+
+    <!-- ================== FONT AWESOME LINK ======================= -->
+
+    <script
+      src="https://kit.fontawesome.com/dee3a677e8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- ================== HEADER NAVIGATION ======================= -->
+
+    <div class="header">
+      <div class="header__navbar">
+        <div class="header__logo">
+          <a href="index.html" class="logo"
+            ><img src="images/logo.png" alt="IRONGEAR" class="store__logo"
+          /></a>
+
+          <input
+            type="text"
+            name=""
+            id="searchBar"
+            placeholder="Search"
+            onkeyup="serach()"
+          />
+          <i class="fa-solid fa-magnifying-glass bar__search"></i>
+        </div>
+
+        <nav class="header__nav">
+          <ul class="header__ul">
+            <li class="header__li">
+              <a href="index.html" class="header__link">Home</a>
+            </li>
+            <li class="header__li">
+              <a href="product.html" class="header__link">Products</a>
+            </li>
+            <li class="header__li">
+              <a href="signup.html" class="header__link">Sign up</a>
+            </li>
+            <li class="header__li">
+              <a
+                href="#name__cart"
+                class="header__link acc__link"
+                id="sign__succ"
+                ><p class="sign__inp">Account</p></a
+              >
+            </li>
+            <li class="header__li">
+              <a href="cart.html" class="cart header__link"
+                ><i class="fa-solid fa-cart-shopping cart__icon"></i>
+                <p id="cart__count">0</p></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- =================== TOGGLE NAVBAR ======================== -->
+
+    <div id="nav__navbar">
+      <ul class="nav__ul">
+        <li class="nav__li">
+          <a href="index.html" class="nav__link" id="home__lick">
+            <i class="fa-solid fa-house home__icon"></i>
+            <br />
+            Home</a
+          >
+        </li>
+        <li class="nav__li">
+          <a href="product.html" class="nav__link" id="home__lick">
+            <i class="fa-solid fa-store home__icon"></i>
+            <br />
+
+            Products</a
+          >
+        </li>
+        <li class="nav__li">
+          <a href="signup.html" class="nav__link" id="home__lick">
+            <i class="fa-solid fa-user-plus home__icon"></i>
+
+            <br />
+
+            Sign up</a
+          >
+        </li>
+        <li class="nav__li">
+          <a
+            href="#name__cart"
+            class="nav__link"
+            id="home__lick"
+            id="sign__succ"
+          >
+            <i class="fa-solid fa-user home__icon"></i>
+
+            <br />
+
+            Account</a
+          >
+        </li>
+        <li class="nav__li">
+          <a href="cart.html" class="cart nav__link"
+            ><i class="fa-solid fa-cart-shopping cart__icon" id="cart__nav"></i>
+            <p id="cart__count" class="cart__counte">0</p></a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- ================== NAME CART DESIGN ====================== -->
+
+    <div class="sidebar" id="name__cart">
+      <div class="close__icon">
+        <a href="#" class="close__link"
+          ><i class="fa-solid fa-xmark sidebar__close"></i
+        ></a>
+      </div>
+
+      <div class="name__sec">
+        <div class="name__text">
+          <h3 class="name__text">
+            <span class="wel__text">Welcome,</span>
+            <span class="sign__inw"></span><span class="loginIN"></span>
+          </h3>
+        </div>
+
+        <div class="view__prof">
+          <a href="login.html" class="view__link">View profile</a>
+        </div>
+      </div>
+
+      <div class="logout__btn" id="name__bbtnn">
+        <button type="submit" class="logout-btn name__btn" id="logout_btn">
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- ====================== CART SIDE BAR ====================== -->
+
+    <!-- <div class="sidebar" id="cart__side">
+
+        <div class="close__icon">
+            <a href="#" class="close__link"><i class="fa-solid fa-xmark sidebar__close"></i></a>
+        </div>
+
+        <div class="head">
+            <p>My Cart</p>
+        </div>
+
+        <div class="cartdisp"></div>
+
+        <div class="totalPriceCart">
+            <div class="subtotal">total</div>
+            <div class="priceView">
+               <h2>00</h2> 
+            </div>
+        </div>
+
+        <div class="buy__btn">
+        <a href="cart.html" class="buy__button">View cart</a>
+        </div>
+
+    </div> -->
+
+    <!-- ====================== CART DETAILS ======================== -->
+
+    <div class="cart__head" style="display: none">
+      <h1 class="cart__text">Your cart</h1>
+    </div>
+
+    <div class="cart__details" style="display: none">
+      <div class="displayItem">
+        <div class="item"><h2>Items</h2></div>
+        <div class="names"><h2>name</h2></div>
+        <div class="prices"><h2>price</h2></div>
+        <div class="quantity"><h2>Quantity</h2></div>
+        <!-- <div class="total"><h2>Total</h2></div>-->
+      </div>
+    </div>
+
+    <div class="cartdisp"></div>
+
+    <div class="totalPriceCart">
+      <div class="subtotal" style="display: none">total</div>
+      <div class="priceView" style="display: none">
+        <h2><span>Rs,</span> <span class="total__price">00</span></h2>
+      </div>
+    </div>
+
+    <div class="empty__head" style="display: none">
+      <h3 class="empty__text">Your cart is empty</h3>
+    </div>
+
+    <div class="continue__button" style="display: none">
+      <a href="index.html" class="continue__btn buy__button"
+        >Contiue shopping</a
+      >
+    </div>
+
+    <div class="check__button" style="display: none">
+      <a href="buy.html" class="check__btn">Check it now</a>
+    </div>
+
+    <script src="js/cart.js"></script>
+  </body>
+
+  <!-- Footer Start -->
+  <footer>
+    <div class="footer">
+      <div class="footer-section">
+        <div class="footer-logo">Dragzora Store</div>
+        <p>
+          Discover the best products at unbeatable prices. Shop now and enjoy
+          great deals!
+        </p>
+      </div>
+      <div class="footer-section footer-links">
+        <h3>Quick Links</h3>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Shop</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-section newsletter">
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter for the latest updates.</p>
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2024 Dragzora Store. All Rights Reserved.
+      <span style="display: block; margin-top: 10px; letter-spacing: 0.22em"
+        >Designed &amp; built by
+        <a
+          href="https://pantrix-flax.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            color: var(--gold);
+            font-weight: 500;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 1px;
+          "
+          >Pantrix</a
+        ></span
+      >
+    </div>
+  </footer>
+  <!-- Footer End-->
+
+  <script>
+    function logPage(e) {
+      e.preventDefault();
+
+      localStorage.clear();
+
+      location.href = "index.html";
+
+      var logout_btnes = document.querySelector("#logout_btn");
+
+      logout_btnes.style.display = "none";
+    }
+
+    var logout_btnes = document.querySelector("#logout_btn");
+
+    logout_btnes.addEventListener("click", logPage);
+
+    let signIn = localStorage.getItem("signin");
+
+    var logout_btnes = document.querySelector("#logout_btn");
+    var view__link = document.querySelector(".view__prof");
+    var wel__text = document.querySelector(".wel__text");
+    var sign__inw = document.querySelector(".sign__inw");
+
+    if (signIn === "true") {
+      logout_btnes.style.display = "block";
+      view__link.style.display = "block";
+      wel__text.style.display = "block";
+    } else {
+      logout_btnes.style.display = "none";
+      view__link.style.display = "none";
+      wel__text.innerHTML = "Please create a account";
+      sign__inw.style.display = "none";
+    }
+
+    window.onload = function () {
+      let welcome__namewe = document.querySelector(".welcome__namew");
+
+      let saveName = localStorage.getItem("saveName");
+      if (saveName === "true") {
+        let welcome__namewe = localStorage.getItem("welcomeName");
+        document.querySelector(".loginIN").innerHTML = welcome__namewe;
+
+        let sign__inw = document.querySelector(".sign__inw");
+
+        sign__inw.style.display = "none";
+
+        // let welcome__namew = document.querySelector(".welcome__namew");
+
+        // welcome__namew.style.display = "block";
+
+        // let welcome__name = document.querySelector(".welcome__name");
+
+        // welcome__name.style.display = "none";
+      }
+
+      let userName = localStorage.getItem("name");
+
+      document.querySelector(".sign__inw").innerHTML = userName;
+
+      // let totalPrice = localStorage.getItem("totalPrice");
+
+      // if(totalPrice === "true") {
+      //     let price = localStorage.getItem("price");
+      //     document.querySelector(".cart__price").innerHTML = price;
+
+      //     let priceTotal = localStorage.getItem("priceTotal");
+      //     document.querySelector(".priceView h3").innerHTML = priceTotal;
+      // }
+
+      // let plus = localStorage.getItem("plus");
+
+      // if(plus === "true") {
+      //     let plusBtn = localStorage.getItem("plusBtn");
+      //     document.querySelector(".cart__quan").value = plusBtn;
+      // }
+
+      // let minus = localStorage.getItem("minus");
+
+      // if(minus === "true") {
+      //     let minusBtn = localStorage.getItem("minusBtn");
+      //     document.querySelector(".cart__quan").value = minusBtn;
+      // }
+    };
+  </script>
+</html>

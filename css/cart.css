@@ -1,0 +1,122 @@
+/* =====================================================================
+   File: css/cart.css   — sidebar cart ke items (index, product, login, signup)
+   ===================================================================== */
+.sidebar .cartlist {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  grid-template-areas:
+    "img name rm"
+    "img price rm"
+    "img qty tot";
+  gap: 4px 16px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  animation: riseIn 0.7s var(--ease) both;
+}
+.sidebar .cartlist:hover > img {
+  transform: scale(1.04);
+}
+/* (#cart__image bhi yehi img hai) */
+.cartlist > img {
+  grid-area: img;
+  width: 84px;
+  height: 104px;
+  object-fit: cover;
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  transition: transform 0.6s var(--ease);
+}
+.cart__name {
+  grid-area: name;
+  font: 500 21px/1.15 var(--serif);
+  color: var(--text);
+  margin: 0;
+}
+.cart__price {
+  grid-area: price;
+  font: 500 13px var(--sans);
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin: 0;
+}
+.cart__tot {
+  grid-area: tot;
+  justify-self: end;
+  font: 600 20px var(--serif);
+  color: var(--gold-2);
+  margin: 0;
+}
+.cart__tot span {
+  font: 500 11px var(--sans);
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+.quan__boxes {
+  grid-area: qty;
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.cart__quan {
+  width: 34px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  text-align: center;
+  color: var(--text);
+  font: 500 15px var(--sans);
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.cart__quan::-webkit-outer-spin-button,
+.cart__quan::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.min__btn,
+.pl__btn {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--gold);
+  font: 400 20px var(--sans);
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+.min__btn:hover,
+.pl__btn:hover {
+  background: var(--gold);
+  color: #111;
+}
+.remove__icon {
+  grid-area: rm;
+  align-self: start;
+  justify-self: end;
+}
+.reoveItem {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--muted);
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    transform 0.6s var(--ease),
+    background 0.3s,
+    color 0.3s;
+}
+.reoveItem:hover {
+  transform: rotate(180deg);
+  background: rgba(201, 169, 110, 0.15);
+  color: var(--gold);
+}

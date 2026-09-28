@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- ================== CSS FILE LINK ======================= -->
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+
+    <!-- ================== GOOGLE FONTS LINK ======================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ================== WEB SHORTCUT ICON ======================= -->
+
+    <link rel="shortcut icon" type="image/png" href="images/logo.avif" />
+
+    <!-- ================== FONT AWESOME LINK ======================= -->
+
+    <script
+      src="https://kit.fontawesome.com/dee3a677e8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- ================== HEADER NAVIGATION ======================= -->
+
+    <div class="header">
+      <div class="header__navbar">
+        <div class="header__logo">
+          <a href="index.html" class="logo"
+            ><img src="images/logo.png" alt="IRONGEAR" class="store__logo"
+          /></a>
+
+          <input type="text" name="" id="searchBar" placeholder="Search" />
+          <i class="fa-solid fa-magnifying-glass bar__search"></i>
+        </div>
+
+        <nav class="header__nav">
+          <ul class="header__ul">
+            <li class="header__li">
+              <a href="index.html" class="header__link">Home</a>
+            </li>
+            <li class="header__li">
+              <a href="product.html" class="header__link">Products</a>
+            </li>
+            <li class="header__li">
+              <a href="signup.html" class="header__link">Sign up</a>
+            </li>
+            <li class="header__li">
+              <a href="#name__cart" class="header__link" id="sign__succ"
+                >Account</a
+              >
+            </li>
+            <li class="header__li">
+              <a href="#cart__side" class="cart header__link"
+                ><i class="fa-solid fa-cart-shopping cart__icon"></i>
+                <p id="cart__count">0</p></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- =================== TOGGLE NAVBAR ======================== -->
+
+    <div id="nav__navbar">
+      <ul class="nav__ul">
+        <li class="nav__li">
+          <a href="index.html" class="nav__link" id="home__lick">
+            <i class="fa-solid fa-house home__icon"></i>
+            <br />
+
+            Home</a
+          >
+        </li>
+        <li class="nav__li">
+          <a href="product.html" class="nav__link" id="home__lick">
+            <i class="fa-solid fa-store home__icon"></i>
+            <br />
+
+            Products</a
+          >
+        </li>
+        <li class="nav__li">
+          <a href="#name__cart" class="nav__link nav__img" id="home__lick">
+            <i class="fa-solid fa-user home__icon"></i>
+
+            <br />
+
+            Account</a
+          >
+        </li>
+        <li class="nav__li">
+          <a href="signup.html" class="nav__link" id="home__lick">
+            <i class="fa-solid fa-user-plus home__icon"></i>
+
+            <br />
+
+            Sign up</a
+          >
+        </li>
+        <li class="nav__li">
+          <a href="#cart__side" class="nav__link"
+            ><i class="fa-solid fa-cart-shopping cart__icon" id="cart__nav"></i>
+            <p id="cart__count" class="cart__counte">0</p></a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- ================== NAME CART DESIGN ====================== -->
+
+    <div class="sidebar" id="name__cart">
+      <div class="close__icon">
+        <a href="#" class="close__link"
+          ><i class="fa-solid fa-xmark sidebar__close"></i
+        ></a>
+      </div>
+
+      <div class="name__sec">
+        <div class="name__text">
+          <h3 class="name__text">
+            <span class="wel__text">Welcome,</span>
+            <span class="sign__inw"></span><span class="loginIN"></span>
+          </h3>
+        </div>
+
+        <div class="view__prof">
+          <a href="login.html" class="view__link">View profile</a>
+        </div>
+      </div>
+
+      <div class="logout__btn" id="name__bbtnn">
+        <button type="submit" id="logout_btn">Logout</button>
+      </div>
+    </div>
+
+    <!-- ================== CART SIDEBAR ===================== -->
+
+    <div class="sidebar" id="cart__side">
+      <div class="close__icon">
+        <a href="#" class="close__link"
+          ><i class="fa-solid fa-xmark sidebar__close"></i
+        ></a>
+      </div>
+
+      <div class="head">
+        <p>My Cart</p>
+      </div>
+
+      <div class="cartdisp"></div>
+
+      <div class="totalPriceCart">
+        <div class="subtotal" style="display: none">total</div>
+        <div class="priceView" style="display: none">
+          <h2><span>Rs,</span> <span class="total__price">00</span></h2>
+        </div>
+      </div>
+
+      <div class="buy__btn" style="display: none">
+        <a href="cart.html" class="buy__button">View cart</a>
+      </div>
+
+      <div class="end__button" style="display: none">
+        <a href="buy.html" class="buy__button">Check it out</a>
+      </div>
+
+      <div class="empty__head" style="display: none">
+        <h3 class="empty__text">Your cart is empty</h3>
+      </div>
+
+      <div class="continue__button" style="display: none">
+        <a href="index.html" class="continue__btn buy__button"
+          >Contiue shopping</a
+        >
+      </div>
+    </div>
+
+    <!-- ====================== SIGN UP SECTION ========================= -->
+
+    <section class="contact__section">
+      <div class="card">
+        <div class="log__image">
+          <img
+            src="./images/logo.png"
+            alt="logo"
+            class="log__img"
+            style="width: 100px"
+          />
+        </div>
+
+        <h2 class="log__text">Create an account</h2>
+
+        <form action="login.html">
+          <div class="form-group">
+            <input
+              type="text"
+              class="mail__input"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+            />
+            <!-- <label for="name" class="mail__label">name</label> -->
+          </div>
+
+          <div class="form-group">
+            <input
+              type="email"
+              class="mail__input"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+            <!-- <label for="email" class="mail__label">email</label> -->
+          </div>
+
+          <div class="form-group">
+            <input
+              type="password"
+              class="mail__input"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <!-- <label for="password" class="mail__label">password</label> -->
+          </div>
+
+          <button
+            type="submit"
+            onclick="upData()"
+            class="sign-btn"
+            id="save_btn"
+          >
+            Sign up
+          </button>
+          <!-- <button type="reset" class="sign-btn" id="">reset</button> -->
+        </form>
+
+        <!-- <div class="signin__btn">
+                <a href="login.html" class="signin__button">Sign in</a>
+            </div> -->
+      </div>
+    </section>
+
+    <!--============= FOOTER SECTION ================= -->
+
+    <!-- Footer Start -->
+    <footer>
+      <div class="footer">
+        <div class="footer-section">
+          <div class="footer-logo">Dragzora Store</div>
+          <p>
+            Discover the best products at unbeatable prices. Shop now and enjoy
+            great deals!
+          </p>
+        </div>
+        <div class="footer-section footer-links">
+          <h3>Quick Links</h3>
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Shop</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>Subscribe to our newsletter for the latest updates.</p>
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2024 Dragzora Store. All Rights Reserved.
+        <span style="display: block; margin-top: 10px; letter-spacing: 0.22em"
+          >Designed &amp; built by
+          <a
+            href="https://pantrix-flax.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="
+              color: var(--gold);
+              font-weight: 500;
+              border-bottom: 1px solid var(--gold);
+              padding-bottom: 1px;
+            "
+            >Pantrix</a
+          ></span
+        >
+      </div>
+    </footer>
+    <!-- Footer End-->
+
+    <!-- <script src="js/script.js"></script> -->
+    <script src="js/signup.js"></script>
+    <!-- <script src="js/profile.js"></script> -->
+    <!-- <script src="js/login.js"></script> -->
+  </body>
+
+  <script>
+    // let signUp = localStorage.getItem("signUp");
+
+    // if(signUp === "true") {
+    //     window.location.href = "login.html";
+    // } {
+    //     window.location.href = "signup.html";
+    // }
+
+    let signIn = localStorage.getItem("signin");
+
+    var logout_btnes = document.querySelector("#logout_btn");
+
+    var view__link = document.querySelector(".view__prof");
+
+    let wel__text = document.querySelector(".wel__text");
+    var sign__inw = document.querySelector(".sign__inw");
+
+    if (signIn === "true") {
+      logout_btnes.style.display = "block";
+      view__link.style.display = "block";
+      wel__text.style.display = "block";
+    } else {
+      logout_btnes.style.display = "none";
+      view__link.style.display = "none";
+      sign__inw.style.display = "none";
+      wel__text.innerHTML = "Please create a account";
+    }
+
+    function outPage(e) {
+      e.preventDefault();
+
+      localStorage.clear();
+
+      location.href = "index.html";
+
+      // var name__btn = document.querySelector(".name__btn");
+
+      // name__btn.style.display = "none";
+    }
+
+    var name__btn = document.querySelector("#logout_btn");
+
+    name__btn.addEventListener("click", outPage);
+
+    // let email = localStorage.getItem("email");
+
+    // document.querySelector(".welcome__pass").textContent = email;
+
+    window.onload = function () {
+      let welcome__namewe = document.querySelector(".welcome__namew");
+
+      let saveName = localStorage.getItem("saveName");
+      if (saveName === "true") {
+        let welcome__namewe = localStorage.getItem("welcomeName");
+        document.querySelector(".loginIN").innerHTML = welcome__namewe;
+
+        let sign__inw = document.querySelector(".sign__inw");
+
+        sign__inw.style.display = "none";
+
+        // let welcome__namew = document.querySelector(".welcome__namew");
+
+        // welcome__namew.style.display = "block";
+
+        // let welcome__name = document.querySelector(".welcome__name");
+
+        // welcome__name.style.display = "none";
+      }
+
+      // let email = localStorage.getItem("email");
+
+      // document.querySelector(".welcome__pass").textContent = email;
+
+      let userName = localStorage.getItem("name");
+
+      document.querySelector(".sign__inw").innerHTML = userName;
+    };
+
+    // Creating the Products Array
+    const products = [];
+
+    // Modify the event listener for the "Add to cart" button
+
+    //Selecting all the prod__btn as there are going to be alots of items card
+    document.querySelectorAll(".prod__btn").forEach((cartBtn) => {
+      // naming each .prod__btn as the cartBtn....  YOU SHOULD USE THE FOREACH METHOD INSTEAD OF FOR LOOP
+      cartBtn.addEventListener("click", (event) => {
+        // Taking the priceELement
+        let priceElement =
+          event.target.parentElement.parentElement.querySelector(
+            ".prod__price",
+          );
+        // Taking the priceText
+        let priceText = priceElement.textContent.trim();
+        // and then parseFlaot it to convert it to a number from a string
+        let price = parseFloat(priceText);
+
+        // Creating product object which we will pass in the products Array
+        let product = {
+          image:
+            event.target.parentElement.parentElement.querySelector(".prod__img")
+              .src,
+          name: event.target.parentElement.parentElement.querySelector(
+            ".prod__name",
+          ).textContent,
+          price: price,
+          totalPrice: price,
+          quantity: 1,
+        };
+
+        //Calling the addItemToLocal function
+        addItemToLocal(product);
+      });
+    });
+
+    // Passing product(the one we created above) in the addItemToLocal
+    function addItemToLocal(product) {
+      // this line of code says that there is something in array or there is an emtpy array
+      let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+      let found = false;
+
+      // HERE ALSO I USED FOREACH YOU SHOULD ALSO USE THIS
+      cartItem.forEach((item) => {
+        if (product.name === item.name) {
+          // now check if the product name and the item name matche if it does then
+          // add the quantiity
+          // update the total price
+          // and set true the found
+          item.quantity++;
+          item.totalPrice += product.price;
+          found = true;
+        }
+      });
+
+      if (!found) {
+        cartItem.push(product);
+      }
+
+      localStorage.setItem("prdInCart", JSON.stringify(cartItem));
+      cartNumberDisplay();
+    }
+
+    function cartNumberDisplay() {
+      let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+      let cartNumbers = cartItem.reduce((acc, item) => acc + item.quantity, 0);
+      document.querySelector("#cart__count").textContent = cartNumbers;
+      document.querySelector(".cart__counte").textContent = cartNumbers;
+    }
+
+    let subtotal = document.querySelector(".subtotal");
+    let priceView = document.querySelector(".priceView");
+    let continue__button = document.querySelector(".continue__button");
+    let empty__head = document.querySelector(".empty__head");
+    let buy__btn = document.querySelector(".buy__btn");
+    let end__button = document.querySelector(".end__button");
+
+    function dispCartItem() {
+      let html = "";
+      let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+      cartItem.forEach((item) => {
+        html += `
+      <div class="cartlist">
+        <img src="${item.image}" alt="" id='cart__image'>
+        <h3 class='cart__name'>${item.name}</h3>
+        <h3 class='cart__price'>Rs, ${item.price}</h3>
+        <div class="quan__boxes">
+          <input type='button' name='quan' class="min__btn" value='-'>
+          <input type="number" class='cart__quan' value="${item.quantity}" readonly>
+          <input type='button' name='quan' class="pl__btn" value='+'>
+        </div>
+        <h3 class='cart__tot'>Rs, ${item.totalPrice}</h3>
+        <div class="remove__icon">
+          <i class="fa-solid fa-xmark reoveItem"></i>
+        </div>
+      </div>`;
+      });
+      document.querySelector(".cartdisp").innerHTML = html;
+
+      if (html.length === 0) {
+        buy__btn.style.display = "none";
+        subtotal.style.display = "none";
+        priceView.style.display = "none";
+        continue__button.style.display = "block";
+        empty__head.style.display = "block";
+        end__button.style.display = "none";
+      } else {
+        buy__btn.style.display = "block";
+        subtotal.style.display = "block";
+        priceView.style.display = "block";
+        continue__button.style.display = "none";
+        empty__head.style.display = "none";
+        end__button.style.display = "block";
+      }
+    }
+    dispCartItem();
+
+    // HERE IS THE INCREMENT AND DECREMENT FUNCTIONALITY
+
+    // Selecting all the .pl__btn as there are alots of items card
+    // Keep remeber when we have more than one elements in our HTML we use querrySelectorAll to get them
+    // and then we use forEach method to get data from it.
+
+    document.querySelectorAll(".pl__btn").forEach((btn) => {
+      // now exactly in our previous addToCart btn here we are getting the btn (for each of the item card)
+      btn.addEventListener("click", (event) => {
+        // the input value is the one that gets added after clicking the plus btn
+        let input = event.target.parentElement.querySelector(".cart__quan");
+        // converted the input value to numerice value..
+        input.value = parseInt(input.value) + 1;
+        // Function for updating the quantity
+        updateQuantity(input);
+      });
+    });
+
+    // NOW HERE IS THE DECREMENT FUNCTIONLAITY
+
+    // Exactly same here we are also selecting all the min__btn as there are alot of item cards
+    document.querySelectorAll(".min__btn").forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        let input = event.target.parentElement.querySelector(".cart__quan");
+        // Here we are saying that if the input value is greater then one then decrement otherwise don't
+        if (parseInt(input.value) > 1) {
+          input.value = parseInt(input.value) - 1;
+          updateQuantity(input);
+        }
+      });
+    });
+
+    // NOW THIS IS THE FUNCTINO TO UPDATES THE QUANTITY WE ARE DOING IT ONLY FOR TOTAL
+
+    function updateQuantity(input) {
+      // 1) first getting the cartItem from the locastorage
+      let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+      // 2) second getting the name of the item from the HTML
+      let itemName =
+        input.parentElement.parentElement.querySelector(
+          ".cart__name",
+        ).textContent;
+      // 3) than we are using find method that if there is the item.name(from the localstorage) and the itemName(from the HTML) are same
+      let item = cartItem.find((item) => item.name === itemName);
+      // 4) then take the item.quantity
+      item.quantity = parseInt(input.value);
+      // 5) and update the totlPrice by multiplying the item.price with the quantity number
+      item.totalPrice = item.price * item.quantity;
+      // 6) lasting updating the cartItme in the locastorage
+      localStorage.setItem("prdInCart", JSON.stringify(cartItem));
+      cartNumberDisplay();
+      cartPrice();
+    }
+
+    function cartPrice() {
+      let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+      let subTotal = cartItem.reduce((acc, item) => acc + item.totalPrice, 0);
+      document.querySelector(".total__price").textContent = subTotal;
+    }
+
+    document.querySelectorAll(".reoveItem").forEach((removeBtn) => {
+      removeBtn.addEventListener("click", () => {
+        let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+        let itemName =
+          removeBtn.parentElement.parentElement.querySelector(
+            ".cart__name",
+          ).textContent;
+        let updatedCart = cartItem.filter((item) => item.name !== itemName);
+        localStorage.setItem("prdInCart", JSON.stringify(updatedCart));
+        dispCartItem();
+        cartNumberDisplay();
+        cartPrice();
+        window.location.reload();
+      });
+    });
+
+    cartNumberDisplay();
+    cartPrice();
+  </script>
+</html>

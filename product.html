@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Add Product — Dragzora</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/store.css" />
+    <link rel="shortcut icon" type="image/png" href="images/logo.png" />
+    <script
+      src="https://kit.fontawesome.com/dee3a677e8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header class="lx-pagehead">
+      <small>Admin</small>
+      <h1>Add Product</h1>
+      <p>
+        Product tabhi add hoga jab image, gender, name, price, cut price aur
+        description sab complete hon.
+      </p>
+    </header>
+
+    <section class="lx-section">
+      <div class="lx-wrap">
+        <form id="pForm" novalidate class="lx-admin">
+          <!-- ---------- IMAGE ---------- -->
+          <div class="lx-upload">
+            <div class="lx-field" id="fImage" style="margin-bottom: 0">
+              <span class="lx-lab">Product Image <b>*</b></span>
+              <label class="lx-drop" id="drop" for="imageInput">
+                <img id="preview" alt="Preview" />
+                <span class="lx-drop__ph">
+                  <i class="fa-solid fa-plus"></i>
+                  <span>Click or drop image<br />JPG / PNG / WEBP</span>
+                </span>
+                <input
+                  type="file"
+                  id="imageInput"
+                  accept="image/jpeg,image/png,image/webp"
+                />
+              </label>
+              <div class="lx-err">Product ki image select karein.</div>
+            </div>
+          </div>
+
+          <!-- ---------- DETAILS ---------- -->
+          <div class="lx-form">
+            <h2>Product Details</h2>
+            <p>Sab fields zaroori hain.</p>
+
+            <div class="lx-check" id="checklist">
+              <span data-k="image"
+                ><i class="fa-solid fa-circle-check"></i>Image</span
+              >
+              <span data-k="gender"
+                ><i class="fa-solid fa-circle-check"></i>Gender</span
+              >
+              <span data-k="name"
+                ><i class="fa-solid fa-circle-check"></i>Name</span
+              >
+              <span data-k="price"
+                ><i class="fa-solid fa-circle-check"></i>Price</span
+              >
+              <span data-k="cut"
+                ><i class="fa-solid fa-circle-check"></i>Cut Price</span
+              >
+              <span data-k="desc"
+                ><i class="fa-solid fa-circle-check"></i>Description</span
+              >
+            </div>
+
+            <div class="lx-field" id="fGender">
+              <span class="lx-lab">Category (Gender) <b>*</b></span>
+              <div class="lx-gender" id="genderBox">
+                <label data-v="men">
+                  <input type="radio" name="gender" value="men" />
+                  <i class="fa-solid fa-person"></i><span>Men</span>
+                </label>
+                <label data-v="women">
+                  <input type="radio" name="gender" value="women" />
+                  <i class="fa-solid fa-person-dress"></i><span>Women</span>
+                </label>
+              </div>
+              <div class="lx-err">Men ya Women select karein.</div>
+            </div>
+
+            <div class="lx-field" id="fName">
+              <label for="pName">Product Name <b>*</b></label>
+              <input
+                type="text"
+                id="pName"
+                class="lx-in"
+                placeholder="e.g. Noir Signature Polo"
+                maxlength="80"
+                autocomplete="off"
+              />
+              <div class="lx-err">
+                Product ka naam likhein (kam az kam 3 huroof).
+              </div>
+            </div>
+
+            <div class="lx-row">
+              <div class="lx-field" id="fPrice">
+                <label for="pPrice">Price (Rs) <b>*</b></label>
+                <input
+                  type="number"
+                  id="pPrice"
+                  class="lx-in"
+                  placeholder="e.g. 3200"
+                  min="1"
+                  step="1"
+                />
+                <div class="lx-err">Sahi price likhein (0 se zyada).</div>
+              </div>
+              <div class="lx-field" id="fCut">
+                <label for="pCut">Cut Price (Rs) <b>*</b></label>
+                <input
+                  type="number"
+                  id="pCut"
+                  class="lx-in"
+                  placeholder="e.g. 4500"
+                  min="1"
+                  step="1"
+                />
+                <div class="lx-err" id="cutErr">
+                  Cut price, price se zyada honi chahiye.
+                </div>
+              </div>
+            </div>
+
+            <div class="lx-field" id="fDesc">
+              <label for="pDesc">Description <b>*</b></label>
+              <textarea
+                id="pDesc"
+                class="lx-ta"
+                placeholder="Fabric, fit, style — product ki poori details likhein (kam az kam 20 huroof)"
+                maxlength="1200"
+              ></textarea>
+              <div class="lx-err">
+                Description kam az kam 20 huroof ki likhein.
+              </div>
+            </div>
+
+            <button type="submit" class="lx-submit is-off" id="submitBtn">
+              Add Product
+            </button>
+          </div>
+        </form>
+
+        <!-- ---------- ADDED PRODUCTS ---------- -->
+        <div class="lx-mine">
+          <div class="lx-head">
+            <small>Your Catalogue</small>
+            <h2>Added Products</h2>
+          </div>
+          <div class="lx-grid" id="mine"></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="lxFooter"></div>
+
+    <script src="js/store.js"></script>
+    <script>
+      LX.mount("add");
+
+      var imageData = "";
+      var form = document.getElementById("pForm");
+      var imageInput = document.getElementById("imageInput");
+      var drop = document.getElementById("drop");
+      var preview = document.getElementById("preview");
+      var pName = document.getElementById("pName");
+      var pPrice = document.getElementById("pPrice");
+      var pCut = document.getElementById("pCut");
+      var pDesc = document.getElementById("pDesc");
+      var submitBtn = document.getElementById("submitBtn");
+      var touched = false; // submit dabne ke baad errors dikhayenge
+
+      function genderValue() {
+        var r = form.querySelector('input[name="gender"]:checked');
+        return r ? r.value : "";
+      }
+
+      // har field ka status
+      function state() {
+        var price = parseFloat(pPrice.value);
+        var cut = parseFloat(pCut.value);
+        return {
+          image: !!imageData,
+          gender: !!genderValue(),
+          name: pName.value.trim().length >= 3,
+          price: price > 0,
+          cut: cut > 0 && price > 0 && cut > price,
+          desc: pDesc.value.trim().length >= 20,
+        };
+      }
+
+      function setErr(fieldId, inputEl, bad) {
+        var f = document.getElementById(fieldId);
+        f.classList.toggle("has-err", bad);
+        if (inputEl) inputEl.classList.toggle("is-bad", bad);
+      }
+
+      function refresh() {
+        var s = state();
+        // checklist chips
+        document.querySelectorAll("#checklist span").forEach(function (c) {
+          c.classList.toggle("ok", s[c.getAttribute("data-k")]);
+        });
+        // gender pills
+        document.querySelectorAll("#genderBox label").forEach(function (l) {
+          l.classList.toggle(
+            "is-on",
+            l.getAttribute("data-v") === genderValue(),
+          );
+        });
+        var all = s.image && s.gender && s.name && s.price && s.cut && s.desc;
+        submitBtn.classList.toggle("is-off", !all);
+
+        if (touched) {
+          setErr("fImage", null, !s.image);
+          drop.classList.toggle("is-bad", !s.image);
+          setErr("fGender", null, !s.gender);
+          setErr("fName", pName, !s.name);
+          setErr("fPrice", pPrice, !s.price);
+          setErr("fCut", pCut, !s.cut);
+          setErr("fDesc", pDesc, !s.desc);
+        }
+        return all;
+      }
+
+      // cut price ka sahi error message
+      function cutMsg() {
+        var cut = parseFloat(pCut.value);
+        var price = parseFloat(pPrice.value);
+        document.getElementById("cutErr").textContent = !(cut > 0)
+          ? "Cut price likhein (0 se zyada)."
+          : "Cut price, price se zyada honi chahiye.";
+      }
+
+      ["input", "change"].forEach(function (ev) {
+        form.addEventListener(ev, function () {
+          cutMsg();
+          refresh();
+        });
+      });
+
+      // ---------- image select + drag/drop ----------
+      function loadFile(file) {
+        if (!file) return;
+        if (!/^image\/(jpeg|png|webp)$/.test(file.type)) {
+          LX.toast("Sirf JPG, PNG ya WEBP image select karein", "error");
+          return;
+        }
+        LX.readImage(file, 900)
+          .then(function (data) {
+            imageData = data;
+            preview.src = data;
+            drop.classList.add("has-img");
+            refresh();
+          })
+          .catch(function () {
+            LX.toast("Image load nahi hui, dobara try karein", "error");
+          });
+      }
+      imageInput.addEventListener("change", function () {
+        loadFile(imageInput.files[0]);
+      });
+      ["dragenter", "dragover"].forEach(function (ev) {
+        drop.addEventListener(ev, function (e) {
+          e.preventDefault();
+          drop.classList.add("is-drag");
+        });
+      });
+      ["dragleave", "drop"].forEach(function (ev) {
+        drop.addEventListener(ev, function (e) {
+          e.preventDefault();
+          drop.classList.remove("is-drag");
+        });
+      });
+      drop.addEventListener("drop", function (e) {
+        var f = e.dataTransfer && e.dataTransfer.files[0];
+        loadFile(f);
+      });
+
+      // ---------- submit ----------
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        touched = true;
+        cutMsg();
+        if (!refresh()) {
+          LX.toast("Pehle sari details complete karein", "error");
+          var bad = form.querySelector(".has-err");
+          if (bad) bad.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        var product = {
+          id: "c" + Date.now(),
+          gender: genderValue(),
+          name: pName.value.trim(),
+          price: Math.round(parseFloat(pPrice.value)),
+          cutPrice: Math.round(parseFloat(pCut.value)),
+          description: pDesc.value.trim(),
+          image: imageData,
+          createdAt: Date.now(),
+        };
+        if (!LX.isValid(product) || !LX.addCustom(product)) {
+          LX.toast(
+            "Storage full hai — chhoti image use karein ya purane products delete karein",
+            "error",
+          );
+          return;
+        }
+        LX.toast(product.name + " added to " + LX.genderLabel(product.gender));
+        // form reset
+        form.reset();
+        imageData = "";
+        preview.removeAttribute("src");
+        drop.classList.remove("has-img", "is-bad");
+        touched = false;
+        document.querySelectorAll(".has-err").forEach(function (f) {
+          f.classList.remove("has-err");
+        });
+        document.querySelectorAll(".is-bad").forEach(function (f) {
+          f.classList.remove("is-bad");
+        });
+        refresh();
+        renderMine();
+      });
+
+      // ---------- added products list ----------
+      var mine = document.getElementById("mine");
+      function renderMine() {
+        var list = LX.getCustom();
+        if (!list.length) {
+          mine.innerHTML =
+            '<div class="lx-empty"><i class="fa-solid fa-box-open"></i>' +
+            "<h3>No products added yet</h3><p>Upar form bhar kar apna pehla product add karein.</p></div>";
+          return;
+        }
+        mine.innerHTML = list
+          .map(function (p, i) {
+            return (
+              '<div style="position:relative">' +
+              LX.card(p, i) +
+              '<button type="button" class="lx-del" data-del="' +
+              LX.esc(p.id) +
+              '" aria-label="Delete product"><i class="fa-solid fa-xmark"></i></button></div>'
+            );
+          })
+          .join("");
+        LX.reveal(mine);
+      }
+      mine.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-del]");
+        if (!b) return;
+        if (confirm("Is product ko delete karna hai?")) {
+          LX.deleteCustom(b.getAttribute("data-del"));
+          renderMine();
+          LX.toast("Product deleted");
+        }
+      });
+
+      renderMine();
+      refresh();
+    </script>
+  </body>
+</html>

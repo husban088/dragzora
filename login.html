@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POWER Fitness | GYM Clothes</title>
+
+    <!-- ================== CSS FILE LINK ======================= -->
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+
+    <!-- ================== GOOGLE FONTS LINK ======================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+
+    <!-- ================== WEB SHORTCUT ICON ======================= -->
+
+    <link rel="shortcut icon" type="image/png" href="images/logo.avif">
+
+    <!-- ================== FONT AWESOME LINK ======================= -->
+
+    <script src="https://kit.fontawesome.com/dee3a677e8.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- ================== HEADER NAVIGATION ======================= -->
+
+    <div class="header">
+
+        <div class="header__navbar">
+
+            <div class="header__logo">
+                <a href="index.html" class="logo"><img src="images/logo.png" alt="IRONGEAR" class="store__logo"></a>
+
+                <input type="text" name="" id="searchBar" placeholder="Search">
+                <i class="fa-solid fa-magnifying-glass bar__search"></i>
+
+            </div>
+
+            <nav class="header__nav">
+                <ul class="header__ul">
+                    <li class="header__li"><a href="index.html" class="header__link">Home</a></li>
+                    <li class="header__li"><a href="product.html" class="header__link">Products</a></li>
+                    <li class="header__li"><a href="signup.html" class="header__link">Sign up</a></li>
+                    <li class="header__li"><a href="#name__cart" class="header__link" id="sign__succ">Account</a></li>
+                    <li class="header__li"><a href="#cart__side" class="cart header__link"><i
+                                class="fa-solid fa-cart-shopping cart__icon"></i>
+                            <p id="cart__count">0</p>
+                        </a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================== TOGGLE NAVBAR ======================== -->
+
+    <div id="nav__navbar">
+
+        <!-- <ul class="nav__ul">
+            <li class="nav__li"><a href="index.html" class="nav__link">Home</a></li>
+            <li class="nav__li"><a href="product.html" class="nav__link">Products</a></li>
+            <li class="nav__li"><a href="login.html" class="nav__link" id="sign__succ"><img src="images/profileimg.webp" alt="" class="no__imgs" id="sign__img"><p class="sign__in">Sign in</p></a></li>
+            <li class="nav__li"><a href="signup.html" class="nav__link">Sign up</a></li>
+            <li class="nav__li"><a href="#cart__side" class="nav__link"><i class="fa-solid fa-cart-shopping cart__icon"></i><p id="cart__count">0</p></a></li>
+        </ul> -->
+
+
+        <ul class="nav__ul">
+            <li class="nav__li"><a href="index.html" class="nav__link" id="home__lick">
+                    <i class="fa-solid fa-house home__icon"></i>
+                    <br>
+                    Home</a></li>
+            <li class="nav__li"><a href="product.html" class="nav__link" id="home__lick">
+
+                    <i class="fa-solid fa-store home__icon"></i>
+                    <br>
+
+                    Products</a></li>
+            <li class="nav__li"><a href="signup.html" class="nav__link" id="home__lick">
+
+                    <i class="fa-solid fa-user-plus home__icon"></i>
+
+                    <br>
+
+                    Sign up</a></li>
+            <li class="nav__li"><a href="#name__cart" class="nav__link" id="home__lick" id="sign__succ">
+
+                    <i class="fa-solid fa-user home__icon"></i>
+
+                    <br>
+
+                    Account</a></li>
+            <li class="nav__li"><a href="#cart__side" class="cart nav__link"><i
+                        class="fa-solid fa-cart-shopping cart__icon" id="cart__nav"></i>
+                    <p id="cart__count" class="cart__counte">0</p>
+                </a></li>
+        </ul>
+
+
+    </div>
+
+    <!-- ================== NAME CART DESIGN ====================== -->
+
+    <div class="sidebar" id="name__cart">
+
+        <div class="close__icon">
+            <a href="#" class="close__link"><i class="fa-solid fa-xmark sidebar__close"></i></a>
+        </div>
+
+        <!-- <span class="create__text" style="display: none;">Please Create a account</span> -->
+
+        <div class="name__sec">
+
+            <div class="name__text">
+                <h3 class="name__text"> <span class="wel__text">Welcome,</span> <span class="sign__inw" id="sign__inw"></span><span
+                        class="loginIN"></span></h3>
+            </div>
+
+            <div class="view__prof" id="view__prof">
+                <a href="login.html" class="view__link">View profile</a>
+            </div>
+
+
+        </div>
+
+        <div class="logout__btn" id="name__bbtnn">
+            <button type="submit" class="logout-btn name__btn" id="logout_btn">Logout</button>
+        </div>
+
+    </div>
+
+
+    <!-- =================== CART SECTION ===================== -->
+
+    <div class="sidebar" id="cart__side">
+
+        <div class="close__icon">
+            <a href="#" class="close__link"><i class="fa-solid fa-xmark sidebar__close"></i></a>
+        </div>
+
+        <div class="head">
+            <p>My Cart</p>
+        </div>
+
+        <div class="cartdisp"></div>
+
+        <div class="totalPriceCart">
+          <div class="subtotal" style="display: none;">total</div>
+          <div class="priceView" style="display: none;">
+            <h2><span>Rs,</span> <span class="total__price">00</span></h2>
+          </div>
+        </div>
+  
+        <div class="buy__btn" style="display: none;">
+          <a href="cart.html" class="buy__button">View cart</a>
+        </div>
+
+        <div class="end__button" style="display: none;">
+          <a href="buy.html" class="buy__button">Check it out</a>
+        </div>
+  
+        <div class="empty__head" style="display: none;">
+          <h3 class="empty__text">Your cart is empty</h3>
+        </div>
+  
+        <div class="continue__button" style="display: none;">
+          <a href="index.html" class="continue__btn buy__button">Contiue shopping</a>
+        </div>
+
+    </div>
+
+    <!-- ======================== PROFILE SECTION ======================= -->
+
+    <div id="name__in" style="display: none;">
+
+        <div class="name__logo">
+            <a href="index.html"><img src="images/logo.png" alt="" class="name__pic"></a>
+        </div>
+
+        <div class="user__img">
+            <!-- <div class="prof__image">
+                    <img src="images/profileimg.webp" alt="" class="no__img">
+                
+                    <label for="input-file" class="update__btn">
+                        <i class="fa-solid fa-plus update__icon"></i>
+                    </label>
+    
+                    <input type="file" accept="images/jpeg,images/png, images/jpg" id="input-file">
+    
+                </div> -->
+
+            <h1 class="welcome__nams" id="welconme__name"> Name:
+                <span class="welcome__name"></span>
+                <input type="text" name="welcome__namew" class="welcome__namew" style="display: none;" required>
+                <span id="welcome__users"></span>
+
+            </h1>
+            <h1 class="welcome__nams"> Email:
+                <span class="welcome__pass"></span>
+
+                <input type="email" class="welcome__mail" style="display: none;" required>
+                <span id="user__email"></span>
+
+            </h1>
+
+            <!-- <div class="location">
+                    <h2 class="coun__text">Country: <span class="location__text">Pakistan</span></h2>
+                    <h2 class="coun__text">City: <span class="location__tex">Faisalabad</span></h2>
+                </div> -->
+
+            <div class="dit__btn">
+                <button id="eidt__prof">Edit profile</button>
+            </div>
+
+            <div class="dit__btn">
+                <button id="save__prof" style="display: none; width: 70%; margin-right: auto; margin-left: auto;">Save profile</button>
+            </div>
+
+            <div class="logout__btn">
+                <button type="submit" id="out__btn">Logout</button>
+            </div>
+
+            <!-- <div class="sav__btn">
+                    <button class="sav__button">Save</button>
+                  </div>  -->
+
+
+        </div>
+
+    </div>
+
+    <!-- =================== CUSTOMER LOGIN ======================= -->
+
+
+    <section class="contact__section" id="login__sec">
+        <h2 class="log__text">Customer Login</h2>
+
+        <form>
+            <div class="form-group">
+                <!-- <input type="email" name="email" id="email" class="mail__input" placeholder="Email">
+            <label for="email" class="mail__label">email</label> -->
+
+                <input type="text" class="mail__input" id="name" name="name" placeholder="Name">
+                <!-- <label for="name" class="mail__label">name</label> -->
+
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" id="password" class="mail__input" placeholder="Password">
+                <!-- <label for="password" class="mail__label">password</label> -->
+            </div>
+
+            <div class="form-group" id="mail__group" style="display: none;">
+                <input type="email" name="email" id="email" class="mail__input" placeholder="Email">
+                <!-- <label for="password" class="mail__label">password</label> -->
+            </div>
+
+            <button type="submit" onclick="loginData()" class="sign-btn" id="save_btn">Sign in</button>
+
+            <!-- <button type="reset" class="sign-btn"  id="">reset</button> -->
+        </form>
+        </div>
+    </section>
+
+
+
+
+
+
+        <!--============= FOOTER SECTION ================= -->
+
+    <!-- Footer Start -->
+    <div class="footer-5-column">
+      <div class="footer-container">
+        <!-- Footer Navigation Start -->
+        <div class="footer-navbar-container">
+          <div class="footer-company-details">
+            <!-- <div class="footer-details-inner"> -->
+            <div class="footer-logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                color="#000"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                />
+              </svg>
+            </div>
+            <div class="footer-content">
+              <p>
+                Frontend-Snippets is 100% free production-ready code snippets
+                for front-end development. It offers a wide variety of code
+                snippets for HTML, CSS, SCSS, and JavaScript. Make your
+                Front-End Development 2X Faster.
+              </p>
+            </div>
+            <div class="footer-icons">
+              <ul>
+                <li>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <path
+                        d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                    >
+                      <path
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                    >
+                      <path
+                        d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- </div> -->
+          </div>
+          <div class="footer-navbar">
+            <div class="footer-navbar-col">
+              <h5>Solutions</h5>
+              <ul>
+                <li><a href="#"> Marketing </a></li>
+                <li><a href="#"> Analyst </a></li>
+                <li><a href="#"> Insight </a></li>
+                <li><a href="#"> Commerce </a></li>
+              </ul>
+            </div>
+            <div class="footer-navbar-col">
+              <h5>Support</h5>
+              <ul>
+                <li><a href="#"> Insight </a></li>
+                <li><a href="#"> Analyst </a></li>
+                <li><a href="#"> Marketing </a></li>
+                <li><a href="#"> Commerce </a></li>
+              </ul>
+            </div>
+            <div class="footer-navbar-col">
+              <h5>Company</h5>
+              <ul>
+                <li><a href="#"> Analyst </a></li>
+                <li><a href="#"> Commerce </a></li>
+                <li><a href="#"> Marketing </a></li>
+                <li><a href="#"> Insight </a></li>
+              </ul>
+            </div>
+            <div class="footer-navbar-col">
+              <h5>Legal</h5>
+              <ul>
+                <li><a href="#"> Commerce </a></li>
+                <li><a href="#"> Analyst </a></li>
+                <li><a href="#"> Insight </a></li>
+                <li><a href="#"> Marketing </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Footer Navigation End -->
+        <div class="footer-copyright">
+          <p>&copy; 2024 Dragzora Store. All Rights Reserved.<span style="display:block;margin-top:10px;letter-spacing:0.22em;">Designed &amp; built by <a href="https://pantrix-flax.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-weight:500;border-bottom:1px solid var(--gold);padding-bottom:1px;">Pantrix</a></span></p>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End-->
+
+
+    <!-- <script src="js/script.js"></script> -->
+    <script src="js/signup.js"></script>
+    <!-- <script src="js/logout.js"></script> -->
+    <!-- <script src="js/profile.js"></script> -->
+    <script src="js/login.js"></script>
+
+</body>
+
+<script>
+
+    window.onload = function () {
+
+        let editName = localStorage.getItem("editName");
+
+        if (editName === "true") {
+  
+        }
+
+        // let welcome__namewe = document.querySelector(".welcome__namew");
+
+
+        let saveName = localStorage.getItem("saveName");
+        if (saveName === "true") {
+            let welcome__namewe = localStorage.getItem("welcomeName");
+            document.querySelector(".loginIN").innerHTML = welcome__namewe;
+
+            let sign__inw = document.querySelector(".sign__inw");
+
+            sign__inw.style.display = "none";
+
+
+            let welcome__namew = document.querySelector(".welcome__namew");
+
+            welcome__namew.style.display = "none";
+
+            document.querySelector("#welcome__users").innerHTML = welcome__namewe;
+
+            //    document.querySelector(".welcome__namew").innerTEXT = welcome__namewe;
+
+            let welcome__name = document.querySelector(".welcome__name");
+
+            welcome__name.style.display = "none";
+
+
+            welcome__namew.disabled = true;
+            let welcome__pass = document.querySelector(".welcome__pass");
+
+            welcome__pass.style.display = "none";
+
+            let user__email = document.querySelector("#user__email");
+
+            user__email.style.display = "block";
+
+            let welcomeEmail = localStorage.getItem("welcomeEmail");
+
+            user__email.innerHTML = welcomeEmail;
+
+            // document.querySelector("#user__email").innerHTML = welcomeEmail;
+        }
+
+        let signIn = localStorage.getItem("signin");
+
+        let contact__sections = document.querySelector(".contact__section");
+
+        let name__ins = document.querySelector("#name__in");
+
+        var logout_btnes = document.querySelector("#logout_btn");
+
+        var view__link = document.querySelector("#view__prof");
+
+        let wel__text = document.querySelector(".wel__text");
+
+        // let create__text = document.querySelector(".create__text");
+
+
+        if (signIn === "true") {
+
+            let userNamew = localStorage.getItem("name");
+
+            document.querySelector(".welcome__name").textContent = userNamew;
+
+            let userPass = localStorage.getItem("email");
+            document.querySelector(".welcome__pass").textContent = userPass;
+
+            contact__sections.style.display = "none";
+
+            name__ins.style.display = "block";
+
+            let userNamee = localStorage.getItem("name");
+
+            document.querySelector("#sign__inw").innerHTML = userNamee;
+
+
+            logout_btnes.style.display = "block";
+            view__link.style.display = "block";
+            wel__text.style.display = "block";
+
+        } else {
+            logout_btnes.style.display = "none";
+            view__link.style.display = "none";
+            wel__text.innerHTML = "Please create a account";
+            // create__text.style.display = "block";
+        }
+
+    }
+
+    function logPage(e) {
+        e.preventDefault();
+
+        localStorage.clear();
+
+        location.href = "index.html";
+
+        var logout_btnes = document.querySelector("#logout_btn");
+
+        logout_btnes.style.display = "none";
+    }
+
+    var logout_btnes = document.querySelector("#logout_btn");
+
+    logout_btnes.addEventListener("click", logPage);
+
+
+    function outPage(e) {
+        e.preventDefault();
+
+        localStorage.clear();
+
+        location.href = "login.html";
+
+        // var name__btn = document.querySelector(".name__btn");
+
+        // name__btn.style.display = "none";
+    }
+
+    var name__btn = document.querySelector("#out__btn");
+
+    name__btn.addEventListener("click", outPage);
+
+
+
+
+
+
+// Creating the Products Array
+const products = [];
+
+
+// Modify the event listener for the "Add to cart" button
+
+//Selecting all the prod__btn as there are going to be alots of items card
+document.querySelectorAll(".prod__btn").forEach(cartBtn => {
+  // naming each .prod__btn as the cartBtn....  YOU SHOULD USE THE FOREACH METHOD INSTEAD OF FOR LOOP
+  cartBtn.addEventListener("click", (event) => {
+  // Taking the priceELement  
+    let priceElement = event.target.parentElement.parentElement.querySelector(".prod__price");
+  // Taking the priceText  
+    let priceText = priceElement.textContent.trim();
+  // and then parseFlaot it to convert it to a number from a string  
+    let price = parseFloat(priceText);
+  
+  // Creating product object which we will pass in the products Array  
+    let product = {
+      image: event.target.parentElement.parentElement.querySelector(".prod__img").src,
+      name: event.target.parentElement.parentElement.querySelector(".prod__name").textContent,
+      price: price,
+      totalPrice: price,
+      quantity: 1,
+    };
+
+    //Calling the addItemToLocal function
+    addItemToLocal(product);
+  });
+});
+
+ // Passing product(the one we created above) in the addItemToLocal 
+function addItemToLocal(product) {
+  // this line of code says that there is something in array or there is an emtpy array
+  let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+  let found = false;
+
+  // HERE ALSO I USED FOREACH YOU SHOULD ALSO USE THIS
+  cartItem.forEach((item) => {
+    if (product.name === item.name) {
+      // now check if the product name and the item name matche if it does then 
+      // add the quantiity 
+      // update the total price 
+      // and set true the found
+      item.quantity++;
+      item.totalPrice += product.price;
+      found = true;
+    }
+  });
+
+  if (!found) {
+    cartItem.push(product);
+  }
+
+  localStorage.setItem("prdInCart", JSON.stringify(cartItem));
+  cartNumberDisplay();
+  location.href = "#cart__side";
+  window.location.reload();
+}
+
+function cartNumberDisplay() {
+  let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+  let cartNumbers = cartItem.reduce((acc, item) => acc + item.quantity, 0);
+  document.querySelector("#cart__count").textContent = cartNumbers;
+  document.querySelector(".cart__counte").textContent = cartNumbers;
+}
+
+let subtotal = document.querySelector(".subtotal");
+  let priceView = document.querySelector(".priceView");
+  let continue__button = document.querySelector(".continue__button");
+  let empty__head = document.querySelector(".empty__head");
+  let buy__btn = document.querySelector(".buy__btn");
+  let end__button = document.querySelector(".end__button");
+
+function dispCartItem() {
+  let html = "";
+  let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+  cartItem.forEach((item) => {
+    html += `
+      <div class="cartlist">
+        <img src="${item.image}" alt="" id='cart__image'>
+        <h3 class='cart__name'>${item.name}</h3>
+        <h3 class='cart__price'>Rs, ${item.price}</h3>
+        <div class="quan__boxes">
+          <input type='button' name='quan' class="min__btn" value='-'>
+          <input type="number" class='cart__quan' value="${item.quantity}" readonly>
+          <input type='button' name='quan' class="pl__btn" value='+'>
+        </div>
+        <h3 class='cart__tot'>Rs, ${item.totalPrice}</h3>
+        <div class="remove__icon">
+          <i class="fa-solid fa-xmark reoveItem"></i>
+        </div>
+      </div>`;
+  });
+  document.querySelector(".cartdisp").innerHTML = html;
+
+  if(html.length === 0) {
+      buy__btn.style.display = "none";
+      subtotal.style.display = "none";
+      priceView.style.display = "none";
+      continue__button.style.display = "block";
+      empty__head.style.display = "block";
+      end__button.style.display = "none";
+    } else {
+      buy__btn.style.display = "block";
+      subtotal.style.display = "block";
+      priceView.style.display = "block";
+      continue__button.style.display = "none";
+      empty__head.style.display = "none";
+      end__button.style.display = "block";
+    }
+
+}
+dispCartItem();
+
+
+// HERE IS THE INCREMENT AND DECREMENT FUNCTIONALITY
+
+// Selecting all the .pl__btn as there are alots of items card
+// Keep remeber when we have more than one elements in our HTML we use querrySelectorAll to get them
+// and then we use forEach method to get data from it.
+
+document.querySelectorAll(".pl__btn").forEach(btn => {
+  // now exactly in our previous addToCart btn here we are getting the btn (for each of the item card)
+  btn.addEventListener('click', (event) => {
+    // the input value is the one that gets added after clicking the plus btn
+    let input = event.target.parentElement.querySelector(".cart__quan");
+    // converted the input value to numerice value..
+    input.value = parseInt(input.value) + 1;
+    // Function for updating the quantity 
+    updateQuantity(input);
+  });
+});
+
+
+// NOW HERE IS THE DECREMENT FUNCTIONLAITY
+
+// Exactly same here we are also selecting all the min__btn as there are alot of item cards
+document.querySelectorAll(".min__btn").forEach(btn => {
+  btn.addEventListener('click', (event) => {
+    let input = event.target.parentElement.querySelector(".cart__quan");
+    // Here we are saying that if the input value is greater then one then decrement otherwise don't
+    if (parseInt(input.value) > 1) {
+      input.value = parseInt(input.value) - 1;
+      updateQuantity(input);
+    }
+  });
+});
+
+
+// NOW THIS IS THE FUNCTINO TO UPDATES THE QUANTITY WE ARE DOING IT ONLY FOR TOTAL
+
+function updateQuantity(input) {
+  // 1) first getting the cartItem from the locastorage
+  let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+  // 2) second getting the name of the item from the HTML 
+  let itemName = input.parentElement.parentElement.querySelector('.cart__name').textContent;
+  // 3) than we are using find method that if there is the item.name(from the localstorage) and the itemName(from the HTML) are same
+  let item = cartItem.find(item => item.name === itemName);
+  // 4) then take the item.quantity
+  item.quantity = parseInt(input.value);
+  // 5) and update the totlPrice by multiplying the item.price with the quantity number
+  item.totalPrice = item.price * item.quantity;
+  // 6) lasting updating the cartItme in the locastorage
+  localStorage.setItem("prdInCart", JSON.stringify(cartItem));
+  cartNumberDisplay();
+  cartPrice();
+}
+
+function cartPrice() {
+  let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+  let subTotal = cartItem.reduce((acc, item) => acc + item.totalPrice, 0);
+  document.querySelector(".total__price").textContent = subTotal;
+}
+
+document.querySelectorAll(".reoveItem").forEach(removeBtn => {
+  removeBtn.addEventListener("click", () => {
+    let cartItem = JSON.parse(localStorage.getItem("prdInCart")) || [];
+    let itemName = removeBtn.parentElement.parentElement.querySelector('.cart__name').textContent;
+    let updatedCart = cartItem.filter(item => item.name !== itemName);
+    localStorage.setItem("prdInCart", JSON.stringify(updatedCart));
+    dispCartItem();
+    cartNumberDisplay();
+    cartPrice();
+    window.location.reload();
+  });
+});
+
+cartNumberDisplay();
+cartPrice();
+
+
+
+
+</script>
+
+</html>

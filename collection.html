@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Collection — Dragzora</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/store.css" />
+    <link rel="shortcut icon" type="image/png" href="images/logo.png" />
+    <script
+      src="https://kit.fontawesome.com/dee3a677e8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- URL: collection.html?g=men  |  ?g=women  |  ?g=all -->
+
+    <header class="lx-pagehead">
+      <small id="phSmall">Dragzora</small>
+      <h1 id="phTitle">Collection</h1>
+      <p id="phText"></p>
+    </header>
+
+    <section class="lx-section">
+      <div class="lx-wrap">
+        <div class="lx-bar">
+          <div class="lx-tabs" id="tabs">
+            <a href="collection.html?g=all" class="lx-tab" data-g="all">All</a>
+            <a href="collection.html?g=men" class="lx-tab" data-g="men">Men</a>
+            <a href="collection.html?g=women" class="lx-tab" data-g="women"
+              >Women</a
+            >
+          </div>
+          <div class="lx-tools">
+            <span class="lx-count" id="count"></span>
+            <select class="lx-select" id="sort" aria-label="Sort products">
+              <option value="new">Featured</option>
+              <option value="low">Price: Low to High</option>
+              <option value="high">Price: High to Low</option>
+              <option value="off">Biggest Discount</option>
+              <option value="az">Name: A – Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="lx-grid" id="grid"></div>
+      </div>
+    </section>
+
+    <div id="lxFooter"></div>
+
+    <script src="js/store.js"></script>
+    <script>
+      var params = new URLSearchParams(location.search);
+      var g = params.get("g");
+      if (g !== "men" && g !== "women") g = "all";
+      var query = (params.get("q") || "").trim();
+
+      var META = {
+        men: {
+          small: "Tailored",
+          title: "Men",
+          text: "Sharp polos, refined tees and elevated essentials — tailored for the modern man.",
+        },
+        women: {
+          small: "Curated",
+          title: "Women",
+          text: "Soft colours, flattering cuts and premium fabrics — curated for effortless elegance.",
+        },
+        all: {
+          small: "The Collection",
+          title: "All Products",
+          text: "Every piece from our Men and Women collections in one place.",
+        },
+      };
+
+      LX.mount(g === "all" ? "" : g);
+
+      document.title = META[g].title + " — Dragzora";
+      document.getElementById("phSmall").textContent = META[g].small;
+      document.getElementById("phTitle").textContent = META[g].title;
+      document.getElementById("phText").textContent = META[g].text;
+
+      document.querySelectorAll(".lx-tab").forEach(function (t) {
+        if (t.getAttribute("data-g") === g) t.classList.add("is-on");
+      });
+
+      var grid = document.getElementById("grid");
+      var countEl = document.getElementById("count");
+      var sortEl = document.getElementById("sort");
+      var searchInput = document.getElementById("searchBar");
+      if (searchInput && query) searchInput.value = query;
+
+      function render() {
+        var q = (searchInput ? searchInput.value : query).trim().toLowerCase();
+        var list = LX.byGender(g).filter(function (p) {
+          return (
+            !q || (p.name + " " + p.description).toLowerCase().indexOf(q) > -1
+          );
+        });
+
+        var mode = sortEl.value;
+        if (mode === "low")
+          list.sort(function (a, b) {
+            return a.price - b.price;
+          });
+        else if (mode === "high")
+          list.sort(function (a, b) {
+            return b.price - a.price;
+          });
+        else if (mode === "off")
+          list.sort(function (a, b) {
+            return LX.discount(b) - LX.discount(a);
+          });
+        else if (mode === "az")
+          list.sort(function (a, b) {
+            return a.name.localeCompare(b.name);
+          });
+
+        countEl.textContent =
+          list.length + (list.length === 1 ? " piece" : " pieces");
+
+        if (!list.length) {
+          grid.innerHTML =
+            '<div class="lx-empty"><i class="fa-solid fa-magnifying-glass"></i>' +
+            "<h3>No products found</h3><p>Try a different search or browse another collection.</p></div>";
+          return;
+        }
+        grid.innerHTML = list
+          .map(function (p, i) {
+            return LX.card(p, i);
+          })
+          .join("");
+        LX.reveal(grid);
+      }
+
+      // header search bar se live filter
+      window.LX_onSearch = function () {
+        render();
+      };
+      sortEl.addEventListener("change", render);
+      render();
+    </script>
+  </body>
+</html>

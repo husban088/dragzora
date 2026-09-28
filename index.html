@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Dragzora — Luxury Fashion Store</title>
+
+    <!-- ================== CSS FILE LINK ======================= -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/store.css" />
+
+    <!-- ================== WEB SHORTCUT ICON ======================= -->
+    <link rel="shortcut icon" type="image/png" href="images/logo.png" />
+
+    <!-- ================== FONT AWESOME LINK ======================= -->
+    <script
+      src="https://kit.fontawesome.com/dee3a677e8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Header, mobile dock, Account + Cart sidebar js/store.js se add hote hain -->
+
+    <!-- ========================= HERO ========================= -->
+
+    <section class="hero" id="home">
+      <div class="hero__glow"></div>
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <span class="hero__eyebrow">Autumn / Winter Collection 2024</span>
+          <h1 class="hero__title">Dress in <em>quiet</em> luxury.</h1>
+          <p class="hero__text">
+            Timeless silhouettes, premium fabrics and effortless tailoring —
+            crafted for those who let the details speak.
+          </p>
+          <div class="hero__cta">
+            <a href="collection.html?g=men" class="btn btn--gold"
+              >Shop Men <i class="fa-solid fa-arrow-right"></i
+            ></a>
+            <a href="collection.html?g=women" class="btn btn--ghost"
+              >Shop Women</a
+            >
+          </div>
+          <ul class="hero__stats">
+            <li><strong>12k+</strong><span>Happy clients</span></li>
+            <li><strong>48h</strong><span>Fast delivery</span></li>
+            <li><strong>4.9</strong><span>Average rating</span></li>
+          </ul>
+        </div>
+
+        <div class="hero__visual">
+          <figure class="hero__card hero__card--a">
+            <img src="images/mwhod.webp" alt="Women's collection" />
+          </figure>
+          <figure class="hero__card hero__card--b">
+            <img src="images/ms2.webp" alt="Men's collection" />
+          </figure>
+          <figure class="hero__card hero__card--c">
+            <img src="images/ms1.webp" alt="New season" />
+          </figure>
+          <div class="hero__badge">
+            <div>70%<small>Off</small></div>
+          </div>
+        </div>
+      </div>
+      <a href="#collections" class="hero__scroll">Scroll</a>
+    </section>
+
+    <!-- ========================= MARQUEE ========================= -->
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Free Shipping</span><span>Premium Fabrics</span
+        ><span>Easy Returns</span><span>Cash on Delivery</span
+        ><span>New Season</span><span>Free Shipping</span
+        ><span>Premium Fabrics</span><span>Easy Returns</span
+        ><span>Cash on Delivery</span><span>New Season</span>
+      </div>
+    </div>
+
+    <!-- ========================= COLLECTIONS (sirf Men + Women) ========================= -->
+
+    <section class="lx-cols-sec" id="collections">
+      <div class="lx-wrap">
+        <div class="lx-head lx-reveal">
+          <small>Shop by</small>
+          <h2>Our Collections</h2>
+        </div>
+        <div class="lx-cols">
+          <a
+            href="collection.html?g=men"
+            class="lx-col lx-reveal"
+            style="--i: 0"
+          >
+            <img src="images/slide.webp" alt="Men" />
+            <div class="lx-col__body">
+              <div>
+                <small>Tailored</small>
+                <h3>Men</h3>
+                <em id="menCount">Explore the collection</em>
+              </div>
+              <span class="lx-col__arrow"
+                ><i class="fa-solid fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+          <a
+            href="collection.html?g=women"
+            class="lx-col lx-reveal"
+            style="--i: 2"
+          >
+            <img src="images/ms1.webp" alt="Women" />
+            <div class="lx-col__body">
+              <div>
+                <small>Curated</small>
+                <h3>Women</h3>
+                <em id="womenCount">Explore the collection</em>
+              </div>
+              <span class="lx-col__arrow"
+                ><i class="fa-solid fa-arrow-right"></i
+              ></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= NEW ARRIVALS ========================= -->
+
+    <section id="prod__con" class="lx-section">
+      <div class="lx-wrap">
+        <div class="lx-head lx-reveal">
+          <small>The Collection</small>
+          <h2>New Arrivals</h2>
+        </div>
+        <div class="lx-grid" id="arrivals"></div>
+        <div style="text-align: center; margin-top: 50px" class="lx-reveal">
+          <a href="collection.html?g=all" class="btn btn--ghost"
+            >View All Products <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= EDITORIAL BANNER ========================= -->
+
+    <section class="editorial">
+      <div class="editorial__inner">
+        <div class="editorial__img">
+          <img src="images/ms3.webp" alt="The Signature Edit" />
+        </div>
+        <div class="editorial__copy">
+          <small>The Signature Edit</small>
+          <h2>Made to be <em>remembered</em>.</h2>
+          <p>
+            Every piece is chosen for the way it feels, fits and lasts. Discover
+            the fashion sale of the season — up to 70% off on selected styles.
+          </p>
+          <a href="collection.html?g=all" class="btn btn--gold"
+            >Shop the Sale <i class="fa-solid fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= PERKS ========================= -->
+
+    <section class="perks">
+      <div class="perk">
+        <i class="fa-solid fa-truck-fast"></i>
+        <h4>Free Shipping</h4>
+        <p>Complimentary delivery on every order, right to your door.</p>
+      </div>
+      <div class="perk">
+        <i class="fa-solid fa-gem"></i>
+        <h4>Premium Quality</h4>
+        <p>Carefully selected fabrics and finishing you can feel.</p>
+      </div>
+      <div class="perk">
+        <i class="fa-solid fa-rotate-left"></i>
+        <h4>Easy Returns</h4>
+        <p>Not the perfect fit? Return or exchange without hassle.</p>
+      </div>
+      <div class="perk">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h4>Secure Payment</h4>
+        <p>Cash on delivery and protected checkout, always.</p>
+      </div>
+    </section>
+
+    <!--============= CUSTOMER SECTION ================= -->
+
+    <section class="testimonials">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonials-container">
+        <div class="testimonial">
+          <img src="./images/userfemale.png" alt="Sarah J." />
+          <p>"Amazing quality and fast delivery! Will shop again."</p>
+          <div class="stars">★★★★★</div>
+          <h4>Sarah J.</h4>
+        </div>
+        <div class="testimonial">
+          <img src="./images/usermale2.png" alt="Michael D." />
+          <p>
+            "Great customer service and top-notch products. Highly recommend!"
+          </p>
+          <div class="stars">★★★★★</div>
+          <h4>Michael D.</h4>
+        </div>
+        <div class="testimonial">
+          <img src="./images/userpng.jpg" alt="Emily R." />
+          <p>"Affordable prices and fantastic experience. Loved it!"</p>
+          <div class="stars">★★★★★</div>
+          <h4>Emily R.</h4>
+        </div>
+      </div>
+    </section>
+
+    <!--============= FOOTER (js/store.js bharta hai) ================= -->
+    <div id="lxFooter"></div>
+
+    <script src="js/store.js"></script>
+    <script>
+      LX.mount("home");
+
+      // New Arrivals (admin ke naye products pehle, phir men + women mix)
+      var arrivals = document.getElementById("arrivals");
+      arrivals.innerHTML = LX.latest(8)
+        .map(function (p, i) {
+          return LX.card(p, i);
+        })
+        .join("");
+      LX.reveal(arrivals);
+
+      // Collection cards par product count
+      document.getElementById("menCount").textContent =
+        LX.byGender("men").length + " pieces — Shop now";
+      document.getElementById("womenCount").textContent =
+        LX.byGender("women").length + " pieces — Shop now";
+    </script>
+  </body>
+</html>

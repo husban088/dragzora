@@ -1,0 +1,207 @@
+@import url("cart.css");
+/* =====================================================================
+   File: css/carttwo.css   — cart.html (poora Cart page)
+   ===================================================================== */
+.cart__head,
+.cart__details,
+.cartdisp,
+.totalPriceCart,
+.empty__head,
+.continue__button,
+.check__button {
+  width: min(1100px, calc(100% - 2 * var(--pad)));
+  margin-inline: auto;
+}
+.cart__head {
+  padding: clamp(40px, 6vw, 80px) 0 clamp(24px, 3vw, 40px);
+  text-align: center;
+}
+.cart__text {
+  font: 500 clamp(40px, 6vw, 76px)/1 var(--serif);
+}
+.cart__text::before {
+  content: "Your Selection";
+  display: block;
+  margin-bottom: 16px;
+  font: 500 12px var(--sans);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.cart__text::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 1px;
+  margin: 24px auto 0;
+  background: var(--gold-grad);
+}
+
+.displayItem,
+.cartdisp .cartlist {
+  display: grid;
+  grid-template-columns: 120px 1.6fr 1fr 1.1fr 1fr 40px;
+  align-items: center;
+  gap: 18px;
+}
+.displayItem {
+  padding: 0 0 14px;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.35);
+}
+.displayItem h2 {
+  font: 500 11px var(--sans);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.displayItem .item {
+  grid-column: 1;
+}
+.displayItem .names {
+  grid-column: 2;
+}
+.displayItem .prices {
+  grid-column: 3;
+}
+.displayItem .quantity {
+  grid-column: 4;
+}
+
+.cartdisp .cartlist {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+  transition:
+    background 0.4s,
+    padding 0.5s var(--ease);
+  animation: riseIn 0.7s var(--ease) both;
+}
+.cartdisp .cartlist:hover {
+  background: rgba(201, 169, 110, 0.05);
+  padding-inline: 14px;
+}
+.cartdisp .cartlist > img {
+  width: 120px;
+  height: 150px;
+}
+.cartdisp .cartlist:hover > img {
+  transform: scale(1.05);
+}
+.cartdisp .cart__name {
+  font-size: 26px;
+}
+.cartdisp .cart__price {
+  font-size: 14px;
+}
+.cartdisp .cart__tot {
+  font-size: 24px;
+}
+.cartdisp .cartlist > * {
+  grid-area: auto;
+  justify-self: start;
+}
+.cartdisp .cartlist .cart__tot {
+  justify-self: start;
+}
+.cartdisp .cartlist .remove__icon {
+  justify-self: end;
+}
+
+.totalPriceCart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 26px;
+  margin-top: 22px;
+  padding-top: 26px;
+}
+.priceView h2 {
+  font-size: 46px;
+}
+.empty__head {
+  padding: clamp(50px, 9vw, 110px) 0 10px;
+  text-align: center;
+}
+.empty__text {
+  font: italic 400 clamp(30px, 5vw, 48px) var(--serif);
+  color: var(--muted);
+}
+.continue__button,
+.check__button {
+  max-width: 420px;
+  margin-top: 20px;
+}
+.continue__button {
+  margin-bottom: 40px;
+}
+.check__button {
+  margin-bottom: clamp(30px, 5vw, 60px);
+}
+.check__btn {
+  position: relative;
+  display: block;
+  padding: 19px;
+  text-align: center;
+  background: var(--gold-grad);
+  background-size: 200% auto;
+  color: #111;
+  font: 600 12px var(--sans);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s var(--ease),
+    background-position 0.8s;
+}
+.check__btn:hover {
+  transform: translateY(-4px);
+  background-position: 100% center;
+  box-shadow: 0 20px 44px -12px rgba(201, 169, 110, 0.6);
+}
+
+@media (max-width: 800px) {
+  .displayItem {
+    display: none;
+  }
+  .cartdisp .cartlist {
+    grid-template-columns: 96px 1fr auto;
+    grid-template-areas:
+      "img name rm"
+      "img price rm"
+      "img qty tot";
+    gap: 6px 16px;
+  }
+  .cartdisp .cartlist > img {
+    width: 96px;
+    height: 120px;
+    grid-area: img;
+  }
+  .cartdisp .cartlist .cart__name {
+    grid-area: name;
+    font-size: 22px;
+  }
+  .cartdisp .cartlist .cart__price {
+    grid-area: price;
+  }
+  .cartdisp .cartlist .quan__boxes {
+    grid-area: qty;
+  }
+  .cartdisp .cartlist .cart__tot {
+    grid-area: tot;
+    justify-self: end;
+    font-size: 20px;
+  }
+  .cartdisp .cartlist .remove__icon {
+    grid-area: rm;
+    align-self: start;
+  }
+  .totalPriceCart {
+    justify-content: space-between;
+  }
+  .priceView h2 {
+    font-size: 36px;
+  }
+  .continue__button,
+  .check__button {
+    max-width: none;
+  }
+}

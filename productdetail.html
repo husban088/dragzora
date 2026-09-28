@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090b" />
+    <title>Product — Dragzora</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/store.css" />
+    <link rel="shortcut icon" type="image/png" href="images/logo.png" />
+    <script
+      src="https://kit.fontawesome.com/dee3a677e8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- URL: productdetail.html?id=m1 -->
+
+    <main class="lx-wrap" id="detailRoot"></main>
+
+    <section class="lx-section" id="relatedSec" style="display: none">
+      <div class="lx-wrap">
+        <div class="lx-head lx-reveal">
+          <small>Complete the look</small>
+          <h2>You May Also Like</h2>
+        </div>
+        <div class="lx-grid" id="related"></div>
+      </div>
+    </section>
+
+    <div id="lxFooter"></div>
+
+    <script src="js/store.js"></script>
+    <script>
+      var id = new URLSearchParams(location.search).get("id");
+      var p = id ? LX.getById(id) : null;
+      var root = document.getElementById("detailRoot");
+
+      LX.mount(p ? p.gender : "");
+
+      if (!p) {
+        document.title = "Product not found — Dragzora";
+        root.innerHTML =
+          '<div class="lx-notfound"><h1>Product not found</h1>' +
+          "<p>Ye product maujood nahi hai ya delete ho chuka hai.</p>" +
+          '<a href="index.html" class="btn btn--gold">Back to Home</a></div>';
+      } else {
+        document.title = p.name + " — Dragzora";
+        var off = LX.discount(p);
+        var gLabel = LX.genderLabel(p.gender);
+        var size = "M";
+        var qty = 1;
+
+        root.innerHTML =
+          '<nav class="lx-crumbs"><a href="index.html">Home</a> / ' +
+          '<a href="collection.html?g=' +
+          p.gender +
+          '">' +
+          gLabel +
+          "</a> / <span>" +
+          LX.esc(p.name) +
+          "</span></nav>" +
+          '<div class="lx-detail">' +
+          '<div class="lx-gallery">' +
+          '<div class="lx-zoom" id="zoom">' +
+          '<img src="' +
+          LX.esc(p.image) +
+          '" alt="' +
+          LX.esc(p.name) +
+          '" id="zoomImg" />' +
+          '<span class="lx-tag">' +
+          gLabel +
+          "</span>" +
+          (off > 0 ? '<span class="lx-off">-' + off + "% Off</span>" : "") +
+          "</div>" +
+          '<p class="lx-hint">Hover to zoom</p>' +
+          "</div>" +
+          '<div class="lx-info">' +
+          '<div class="lx-eyebrow">' +
+          gLabel +
+          "&rsquo;s Collection</div>" +
+          '<h1 class="lx-title">' +
+          LX.esc(p.name) +
+          "</h1>" +
+          '<div class="lx-rate"><span class="lx-stars">★★★★★</span> 4.9 / 5 &middot; Verified reviews</div>' +
+          '<div class="lx-pricebox">' +
+          '<span class="lx-now">' +
+          LX.money(p.price) +
+          "</span>" +
+          '<span class="lx-was">' +
+          LX.money(p.cutPrice) +
+          "</span>" +
+          (off > 0
+            ? '<span class="lx-save">Save ' +
+              LX.money(p.cutPrice - p.price) +
+              "</span>"
+            : "") +
+          "</div>" +
+          '<div class="lx-desc-h">Description</div>' +
+          '<p class="lx-desc">' +
+          LX.esc(p.description) +
+          "</p>" +
+          '<div class="lx-opt"><div class="lx-desc-h">Select Size</div>' +
+          '<div class="lx-sizes" id="sizes">' +
+          LX.SIZES.map(function (s) {
+            return (
+              '<button type="button" class="lx-size' +
+              (s === size ? " is-on" : "") +
+              '" data-s="' +
+              s +
+              '">' +
+              s +
+              "</button>"
+            );
+          }).join("") +
+          "</div></div>" +
+          '<div class="lx-opt"><div class="lx-desc-h">Quantity</div>' +
+          '<div class="lx-qty"><button type="button" id="qMinus" aria-label="Decrease">&minus;</button>' +
+          '<output id="qVal">1</output>' +
+          '<button type="button" id="qPlus" aria-label="Increase">+</button></div></div>' +
+          '<div class="lx-actions">' +
+          '<button type="button" class="btn btn--gold" id="addBtn"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>' +
+          '<button type="button" class="btn btn--ghost" id="buyBtn">Buy Now</button>' +
+          "</div>" +
+          '<div class="lx-perks">' +
+          '<div><i class="fa-solid fa-truck-fast"></i>Free Shipping</div>' +
+          '<div><i class="fa-solid fa-rotate-left"></i>Easy Returns</div>' +
+          '<div><i class="fa-solid fa-hand-holding-dollar"></i>Cash on Delivery</div>' +
+          "</div>" +
+          "</div></div>";
+
+        // size select
+        document
+          .getElementById("sizes")
+          .addEventListener("click", function (e) {
+            var b = e.target.closest(".lx-size");
+            if (!b) return;
+            size = b.getAttribute("data-s");
+            this.querySelectorAll(".lx-size").forEach(function (x) {
+              x.classList.toggle("is-on", x === b);
+            });
+          });
+
+        // quantity
+        var qVal = document.getElementById("qVal");
+        document
+          .getElementById("qMinus")
+          .addEventListener("click", function () {
+            if (qty > 1) qVal.textContent = --qty;
+          });
+        document.getElementById("qPlus").addEventListener("click", function () {
+          if (qty < 20) qVal.textContent = ++qty;
+        });
+
+        // add to cart
+        document
+          .getElementById("addBtn")
+          .addEventListener("click", function () {
+            LX.addToCart(p, qty, size);
+            LX.toast(p.name + " (" + size + ") added to cart");
+            LX.openCart();
+          });
+        document
+          .getElementById("buyBtn")
+          .addEventListener("click", function () {
+            LX.addToCart(p, qty, size);
+            location.href = "buy.html";
+          });
+
+        // hover zoom follows mouse
+        var zoom = document.getElementById("zoom");
+        var zimg = document.getElementById("zoomImg");
+        zoom.addEventListener("mousemove", function (e) {
+          var r = zoom.getBoundingClientRect();
+          zimg.style.transformOrigin =
+            ((e.clientX - r.left) / r.width) * 100 +
+            "% " +
+            ((e.clientY - r.top) / r.height) * 100 +
+            "%";
+        });
+        zoom.addEventListener("mouseleave", function () {
+          zimg.style.transformOrigin = "50% 50%";
+        });
+
+        // related products (same gender)
+        var rel = LX.byGender(p.gender)
+          .filter(function (x) {
+            return x.id !== p.id;
+          })
+          .slice(0, 4);
+        if (rel.length) {
+          document.getElementById("related").innerHTML = rel
+            .map(function (x, i) {
+              return LX.card(x, i);
+            })
+            .join("");
+          document.getElementById("relatedSec").style.display = "";
+          LX.reveal(document.getElementById("relatedSec"));
+        }
+      }
+    </script>
+  </body>
+</html>
